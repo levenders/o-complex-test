@@ -1,3 +1,5 @@
+import { HTMLAttributes } from 'react'
+
 export type TProductResponse = {
   id: number
   image_url: string

@@ -1,0 +1,121 @@
+.shoppungCartWrapper {
+  background: hsl(96, 35%, 85%);
+  border: 5px solid rgb(119, 119, 119, 0.2);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 15px;
+  padding: 10px;
+  margin: 20px 40px;
+  font-size: 24px;
+}
+
+.shoppungCartWrapper h3 {
+  font-weight: 300;
+}
+
+.selectedItems {
+  display: grid;
+  grid-template-columns: auto 20px 30px;
+  flex-direction: row;
+  font-weight: 300;
+  margin-right: 20px;
+  gap: 15px;
+  word-wrap: inherit;
+}
+
+.formNumber {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.formInput {
+  height: 50px;
+  width: 300px;
+  background: white;
+  border: 5px solid hsl(96, 35%, 65%);
+  border-radius: 15px;
+  font-size: 24px;
+  text-align: center;
+}
+
+.formButton {
+  cursor: pointer;
+  align-self: center;
+  height: 50px;
+  width: 250px;
+  border: 5px solid rgb(119, 119, 119, 0.2);
+  border-radius: 15px;
+  background-color: hsl(96, 35%, 65%);
+  font-size: 24px;
+  color: black;
+
+  transition: opacity 0.2s linear;
+}
+
+.formButton:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 930px) {
+  .selectedItems {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 620px) {
+  .shoppungCartWrapper {
+    font-size: 18px;
+  }
+
+  .formNumber {
+    flex-direction: column;
+    align-self: center;
+    font-size: 18px;
+  }
+
+  .formButton {
+    width: 300px;
+  }
+
+  .selectedItems {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 440px) {
+  .selectedItems {
+    font-size: 12px;
+    word-wrap: break-word;
+  }
+}
+
+@media (max-width: 420px) {
+  .shoppungCartWrapper {
+    font-size: 16px;
+  }
+
+  .formNumber {
+    flex-direction: column;
+    align-self: center;
+  }
+
+  .formInput {
+    width: 100%;
+    font-size: 18px;
+  }
+
+  .formButton {
+    width: 100%;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 390px) {
+  .selectedItems {
+    font-size: 10px;
+  }
+}

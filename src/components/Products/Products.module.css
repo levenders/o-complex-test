@@ -1,0 +1,30 @@
+.products {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.loading {
+  align-self: center;
+}
+
+.loadMoreButton {
+  border: none;
+  background: transparent;
+  font-size: 30px;
+  margin: 20px 40px;
+  border-bottom: 2px solid hsl(96, 35%, 65%);
+}
+
+@media (max-width: 720px) {
+  .loadMoreButton {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 320px) {
+  .loadMoreButton {
+    font-size: 14px;
+  }
+}

@@ -6,6 +6,8 @@ import { Review } from './components/Review'
 import { TReview } from '@/types'
 import { complexApiClient } from '@/api/complexApiClient'
 
+import styles from './Reviews.module.css'
+
 export const Reviews = () => {
   const [reviews, setReviews] = useState<TReview[]>([])
   const [isLoading, setIsLoading] = useState(false)
@@ -17,9 +19,10 @@ export const Reviews = () => {
       .then((data) => setReviews(data))
       .finally(() => setIsLoading(false))
   }, [])
+
   return (
-    <div>
-      {isLoading && <h1>LOADING</h1>}
+    <div className={styles.wrapper}>
+      {isLoading && <h1 className={styles.loading}>ЗАГРУЗКА ОТЗЫВОВ ...</h1>}
       {reviews.map((review) => (
         <div key={review.id}>
           <Review review={review} />

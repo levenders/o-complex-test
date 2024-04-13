@@ -1,0 +1,135 @@
+.product {
+  background: hsl(96, 35%, 85%);
+  border: 5px solid rgb(119, 119, 119, 0.2);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+
+  width: 340px;
+  height: 700;
+  padding: 10px;
+  margin: 10px;
+}
+
+.product h3 {
+  text-align: center;
+  height: 70px;
+  word-wrap: break-word;
+}
+
+.product p {
+  height: 300px;
+  overflow: hidden;
+}
+
+.product img {
+  width: 100%;
+  height: 430px;
+  border-radius: 15px;
+}
+
+.product p:hover {
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: hsl(96, 35%, 85%) rgb(119, 119, 119, 0.2);
+}
+
+.product h4 {
+  margin-top: auto;
+  margin-bottom: 0px;
+  height: 30px;
+  font-size: 18px;
+  text-align: center;
+  align-self: center;
+}
+
+.buyButton {
+  margin-top: auto;
+  margin-bottom: 0px;
+  cursor: pointer;
+  align-self: center;
+  height: 50px;
+  width: 100%;
+  border: 5px solid rgb(119, 119, 119, 0.2);
+  border-radius: 15px;
+  background-color: hsl(96, 35%, 65%);
+  font-size: 24px;
+  color: black;
+
+  transition: opacity 0.2s linear;
+}
+
+.buyButton:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 720px) {
+  .product {
+    width: 300px;
+  }
+
+  .product h3 {
+    font-size: 16px;
+  }
+
+  .product p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 640px) {
+  .product {
+    width: 280px;
+  }
+
+  .product h3 {
+    font-size: 14px;
+  }
+
+  .product p {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .product {
+    width: auto;
+    height: auto;
+  }
+
+  .product h3 {
+    font-size: 14px;
+    height: auto;
+  }
+
+  .product p {
+    font-size: 12px;
+    height: auto;
+  }
+
+  .product img {
+    width: auto;
+  }
+}
+
+@media (max-width: 380px) {
+  .product {
+    width: 100%;
+  }
+
+  .product h3 {
+    width: 100%;
+  }
+
+  .product p {
+    width: 100%;
+  }
+
+  .product img {
+    width: 100%;
+  }
+
+  .buyButton {
+    font-size: 18px;
+  }
+}

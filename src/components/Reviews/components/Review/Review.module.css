@@ -1,0 +1,22 @@
+.review {
+  border: 5px solid rgb(119, 119, 119, 0.2);
+  border-radius: 15px;
+  margin: 10px 5px;
+  padding: 10px;
+  color: black;
+  background: hsl(96, 35%, 85%);
+}
+
+.review h1 {
+  display: inline;
+  margin-left: 32px;
+}
+
+.icon {
+  display: inline-block;
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  background-color: rgb(119, 119, 119);
+  mask-image: url('/icons/user-review.svg');
+}

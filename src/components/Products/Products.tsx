@@ -5,9 +5,16 @@ import { TAllProductsResponse, TProduct } from '@/types'
 import { useEffect, useState } from 'react'
 import { getProductFromResponse } from './helpers'
 
+import styles from './Products.module.css'
+import { ShoppingCart } from './components/ShoppingCart'
+import { ProductItem } from './components/ProductItem'
+
 export const Products = () => {
   const [products, setProducts] = useState<TProduct[]>([])
   const [currentPage, setCurrentPage] = useState(1)
+  const [isLoading, setIsLoading] = useState(false)
+
+  const productsInCart = products.filter((product) => product.count > 0)
 
   const loadMore = () => {
     setCurrentPage((prev) => prev + 1)
@@ -23,23 +30,51 @@ export const Products = () => {
     })
   }
 
+  const handleChangeProduct = (productId: number, count: number) => {
+    const draftProducts = products.map((product) => {
+      if (product.id === productId) {
+        return { ...product, count, totalPrice: count * product.onePrice }
+      }
+
+      return product
+    })
+
+    setProducts(draftProducts)
+  }
+
   useEffect(() => {
+    setIsLoading(true)
     complexApiClient<TAllProductsResponse>({
       url: '/products?page=1&page_size=20',
-    }).then((data) => {
-      const draftProducts = data.products.map((productResponse) =>
-        getProductFromResponse(productResponse)
-      )
-
-      setProducts(draftProducts)
     })
+      .then((data) => {
+        const draftProducts = data.products.map((productResponse) =>
+          getProductFromResponse(productResponse)
+        )
+
+        setProducts(draftProducts)
+      })
+      .finally(() => setIsLoading(false))
   }, [])
 
   return (
-    <div>
-      {products.map((product) => product.title)}
-
-      <button onClick={loadMore}>click me</button>
-    </div>
+    <>
+      {isLoading && <h1 className={styles.loading}>ЗАГРУЗКА ТОВАРОВ ...</h1>}
+      <div className={styles.wrapper}>
+        <ShoppingCart products={productsInCart} />
+        <div className={styles.products}>
+          {products.map((product) => (
+            <ProductItem
+              key={product.id}
+              product={product}
+              onChangeProduct={handleChangeProduct}
+            ></ProductItem>
+          ))}
+        </div>
+        <button onClick={loadMore} className={styles.loadMoreButton}>
+          Показать еще
+        </button>
+      </div>
+    </>
   )
 }
