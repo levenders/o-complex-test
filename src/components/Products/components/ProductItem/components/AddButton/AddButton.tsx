@@ -6,11 +6,13 @@ interface IProps extends HTMLAttributes<HTMLButtonElement> {
   count: number
   addCount: () => void
   removeCount: () => void
+  onChangeCount: (count: number) => void
 }
 
 export const AddButton: FC<IProps> = ({
   addCount,
   removeCount,
+  onChangeCount,
   count,
   className,
   ...props
@@ -20,7 +22,11 @@ export const AddButton: FC<IProps> = ({
       <button onClick={() => removeCount()} className={styles.addButton}>
         <span>-</span>
       </button>
-      <span className={styles.countNum}>{count}</span>
+      <input
+        className={styles.countNum}
+        value={count}
+        onChange={(e) => onChangeCount(e.target.value)}
+      />
       <button onClick={() => addCount()} className={styles.addButton}>
         <span>+</span>
       </button>

@@ -1,13 +1,15 @@
 'use client'
 
+import { useEffect, useState } from 'react'
+
 import { complexApiClient } from '@/api/complexApiClient'
 import { TAllProductsResponse, TProduct } from '@/types'
-import { useEffect, useState } from 'react'
-import { getProductFromResponse } from './helpers'
 
-import styles from './Products.module.css'
+import { getProductFromResponse } from './helpers'
 import { ShoppingCart } from './components/ShoppingCart'
 import { ProductItem } from './components/ProductItem'
+
+import styles from './Products.module.css'
 
 export const Products = () => {
   const [products, setProducts] = useState<TProduct[]>([])

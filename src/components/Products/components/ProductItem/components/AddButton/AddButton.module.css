@@ -25,9 +25,7 @@
 }
 
 .countNum {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  text-align: center;
   margin: 0px 10px;
   width: 180px;
   border: 5px solid rgb(119, 119, 119, 0.2);

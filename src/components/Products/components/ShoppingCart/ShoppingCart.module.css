@@ -18,12 +18,16 @@
 
 .selectedItems {
   display: grid;
-  grid-template-columns: auto 20px 30px;
+  grid-template-columns: 1fr 90px 90px;
   flex-direction: row;
   font-weight: 300;
   margin-right: 20px;
   gap: 15px;
   word-wrap: inherit;
+}
+
+.selectedItems h3 {
+  text-align: left;
 }
 
 .formNumber {
@@ -83,6 +87,13 @@
 
   .selectedItems {
     font-size: 16px;
+    grid-template-columns: 1fr 60px 60px;
+  }
+}
+
+@media (max-width: 510px) {
+  .selectedItems {
+    grid-template-columns: 1fr 40px 50px;
   }
 }
 
@@ -117,5 +128,6 @@
 @media (max-width: 390px) {
   .selectedItems {
     font-size: 10px;
+    grid-template-columns: 1fr 25px 45px;
   }
 }

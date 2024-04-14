@@ -23,8 +23,8 @@ export const Reviews = () => {
   return (
     <div className={styles.wrapper}>
       {isLoading && <h1 className={styles.loading}>ЗАГРУЗКА ОТЗЫВОВ ...</h1>}
-      {reviews.map((review) => (
-        <div key={review.id}>
+      {reviews.map((review, i) => (
+        <div key={i}>
           <Review review={review} />
         </div>
       ))}
