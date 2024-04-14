@@ -79,6 +79,7 @@ export const ShoppingCart: FC<IProps> = ({ products }) => {
           Оформить заказ
         </button>
       </form>
+      <div></div>
     </div>
   )
 }

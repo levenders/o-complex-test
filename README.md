@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# O-complex
+
+## test task
 
 ## Getting Started
 
-First, run the development server:
+`npm i & npm start`
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### [Figma](https://www.figma.com/file/XIYVl8ICFkdl3HJZcc8o8B/%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%D0%B5?type=design&node-id=0-1&mode=design&t=rSLLrjchY32qVL23-0)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### [Сonditions](https://nubersss.notion.site/React-Developer-Next-js-09c47b36c56447329399c044831c7ef9)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Проделана следующая работа:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Сайт адаптирован под мобильные устройства и плашеты, при помощи медиа-запросов ( 320px / 720 px);
 
-## Learn More
+2. Получение отзывов и товаров по API, а также их размещение на странице:
 
-To learn more about Next.js, take a look at the following resources:
+   - первая страница товаров показывается сразу, остальыне можно подгрузить при помощи кнопки `Показать еще`;
+   - при нажатии на кнопку `купить`, она меняется на кнопки - и + и поле для ввода любого количества товаров;
+   - при изменении кол-ва любого из товаров меняется информация в корзине;
+   - введенный номер телефона сохраняется при перезагрузки страницы
+   - при нажатии кнопки "заказать" отправляется запрос на сервер
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Проявление инициативы по улучшению:
+   - добавлены прилоадеры пока грузится контент;
+   - пофикшена xss атака через контент отзывов;
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+##### Что хотелось бы улучшить, и будет сделано в ближайшее время
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- добавить валидацию на форму отправки корзины;
+- добавление поп-ап окна при успешной отправке формы;
+- сохранение корзины товаров при перезагрузке страницы;
+- добавление кнопку прокрутки сайта в начало
