@@ -11,22 +11,6 @@ interface IProps {
   products: TProduct[]
 }
 
-const onSubmit = (inputValue: string, products: TProduct[]) => {
-  const responseBody = {
-    phone: inputValue,
-    cart: products.map((p) => ({ id: p.id, quantity: p.count })),
-  }
-  console.log(JSON.stringify(responseBody))
-
-  complexApiClient({
-    url: '/order',
-    method: 'POST',
-    body: responseBody,
-  }).then((response) => {
-    console.log(response)
-  })
-}
-
 export const ShoppingCart: FC<IProps> = ({ products }) => {
   const getInputLocalStorage: string = localStorage.getItem('input')
 
@@ -47,6 +31,22 @@ export const ShoppingCart: FC<IProps> = ({ products }) => {
       localStorage.setItem('input', JSON.stringify([]))
     }
   }, [])
+
+  const onSubmit = (inputValue: string, products: TProduct[]) => {
+    const responseBody = {
+      phone: inputValue,
+      cart: products.map((p) => ({ id: p.id, quantity: p.count })),
+    }
+    console.log(JSON.stringify(responseBody))
+
+    complexApiClient({
+      url: '/order',
+      method: 'POST',
+      body: responseBody,
+    }).then((response) => {
+      console.log(response)
+    })
+  }
 
   return (
     <div className={styles.shoppungCartWrapper}>
@@ -75,7 +75,11 @@ export const ShoppingCart: FC<IProps> = ({ products }) => {
             setInputValue(e.currentTarget.value)
           }}
         />
-        <button type="submit" className={styles.formButton}>
+        <button
+          type="submit"
+          className={styles.formButton}
+          disabled={inputValue ? false : true}
+        >
           Оформить заказ
         </button>
       </form>
